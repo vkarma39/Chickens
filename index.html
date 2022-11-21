@@ -1,65 +1,12 @@
-<html lang="en"><head>
-    <script type="text/javascript">(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' GLS/94.10.4659.60';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'REST Tester', 'description': 'ReST Tester', 'filename': 'resttester.dll','0':{'type': 'application/rest-test', 'suffixes': 'rest', 'description': 'ReST Tester'} },{'name':'VT VideoPlayback', 'description': 'VT video playback', 'filename': 'vtvideoplayback.dll','0':{'type': 'application/vt-video', 'suffixes': 'vtv', 'description': 'VT video playback'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chickens</title>
-    <link rel="stylesheet" href="app.css">
-<style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style><style type="text/css">.c1-ui-state-hover {background-color:yellow !important; padding:5px !important }</style></head>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
 
-<body data-new-gr-c-s-check-loaded="14.1087.0" data-gr-ext-installed="">
-    <svg viewBox="0 0 600 300">
-        <!-- Symbol-->
-        <symbol id="s-text">
-            <text text-anchor="middle" x="50%" y="50%" dy=".35em">Chickens!</text>
-        </symbol>
-        <!-- Duplicate symbols-->
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-    </svg>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
 
-
-<script>
-		var returnedSuggestion = ''
-		let editor, doc, cursor, line, pos
-		document.addEventListener("keydown", (event) => {
-		setTimeout(()=>{
-			editor = event.target.closest('.CodeMirror');
-			doc = editor.CodeMirror.getDoc()
-			cursor = doc.getCursor()
-			line = doc.getLine(cursor.line)
-			pos = {line: cursor.line, ch: line.length}
-			if (event.key == "Enter"){
-			var query = doc.getRange({ line: Math.max(0,cursor.line-10), ch: 0 }, { line: cursor.line, ch: 0 })
-			window.postMessage({source: 'getSuggestion', payload: { data: query } } )
-			//displayGrey(query)
-			}
-			else if (event.key == "ArrowRight"){
-			acceptTab(returnedSuggestion)
-			}
-		}, 0)
-		})
-
-		function acceptTab(text){
-		if (suggestionDisplayed){
-			doc.replaceRange(text, pos)
-			suggestionDisplayed = false
-		}
-		}
-		function displayGrey(text){
-		var element = document.createElement('span')
-		element.innerText = text
-		element.style = 'color:grey'
-		var lineIndex = pos.line;
-		editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(element)
-		suggestionDisplayed = true
-		}
-		window.addEventListener('message', (event)=>{
-		if (event.source !== window ) return
-		if (event.data.source == 'return'){
-			returnedSuggestion = event.data.payload.data
-			displayGrey(event.data.payload.data)
-		}
-		})
-	</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body>
+</html>
